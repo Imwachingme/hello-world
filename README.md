@@ -1,373 +1,62 @@
-div.dataTables_length label {
-	font-weight: normal;
-	text-align: left;
-	white-space: nowrap;
-}
+<html><head>
+		<title>Zelda: Breath of the Wild Materials/Recipes</title>
+        <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/dataTables.bootstrap.css">
 
-div.dataTables_length select {
-	width: 75px;
-	display: inline-block;
-}
+        <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
+        <script src="./assets/js/dataTables.bootstrap.js"></script>
+        <script src="./assets/js/jquery.csv.min.js"></script>
+        <script src="./assets/js/main.js"></script>
 
-div.dataTables_filter {
-	text-align: right;
-}
-
-div.dataTables_filter label {
-	font-weight: normal;
-	white-space: nowrap;
-	text-align: left;
-}
-
-div.dataTables_filter input {
-	margin-left: 0.5em;
-	display: inline-block;
-	width: auto;
-}
-
-div.dataTables_info {
-	padding-top: 8px;
-	white-space: nowrap;
-}
-
-div.dataTables_paginate {
-	margin: 0;
-	white-space: nowrap;
-	text-align: right;
-}
-
-div.dataTables_paginate ul.pagination {
-	margin: 2px 0;
-	white-space: nowrap;
-}
-
-@media screen and (max-width: 767px) {
-	div.dataTables_wrapper > div.row > div,
-	div.dataTables_length,
-	div.dataTables_filter,
-	div.dataTables_info,
-	div.dataTables_paginate {
-		text-align: center;
-	}
-
-	div.DTTT {
-		margin-bottom: 0.5em;
-	}
-}
-
-
-table.dataTable td,
-table.dataTable th {
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-}
-
-
-table.dataTable {
-	clear: both;
-	margin-top: 6px !important;
-	margin-bottom: 6px !important;
-	max-width: none !important;
-}
-
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting_asc_disabled,
-table.dataTable thead .sorting_desc_disabled {
-	cursor: pointer;
-	position: relative;
-}
-
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_desc:after {
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	display: block;
-	font-family: 'Glyphicons Halflings';
-	opacity: 0.5;
-}
-table.dataTable thead .sorting:after {
-	opacity: 0.2;
-	content: "\e150"; /* sort */
-}
-table.dataTable thead .sorting_asc:after {
-	content: "\e155"; /* sort-by-attributes */
-}
-table.dataTable thead .sorting_desc:after {
-	content: "\e156"; /* sort-by-attributes-alt */
-}
-div.dataTables_scrollBody table.dataTable thead .sorting:after,
-div.dataTables_scrollBody table.dataTable thead .sorting_asc:after,
-div.dataTables_scrollBody table.dataTable thead .sorting_desc:after {
-	display: none;
-}
-
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:after {
-	color: #eee;
-}
-
-table.dataTable thead > tr > th {
-	padding-right: 30px;
-}
-
-table.dataTable th:active {
-	outline: none;
-}
-
-
-/* Condensed */
-table.dataTable.table-condensed thead > tr > th {
-	padding-right: 20px;
-}
-
-table.dataTable.table-condensed thead .sorting:after,
-table.dataTable.table-condensed thead .sorting_asc:after,
-table.dataTable.table-condensed thead .sorting_desc:after {
-	top: 6px;
-	right: 6px;
-}
-
-/* Scrolling */
-div.dataTables_scrollHead table {
-	margin-bottom: 0 !important;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-}
-
-div.dataTables_scrollHead table thead tr:last-child th:first-child,
-div.dataTables_scrollHead table thead tr:last-child td:first-child {
-	border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-}
-
-div.dataTables_scrollBody table {
-	border-top: none;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-}
-
-div.dataTables_scrollBody tbody tr:first-child th,
-div.dataTables_scrollBody tbody tr:first-child td {
-	border-top: none;
-}
-
-div.dataTables_scrollFoot table {
-	margin-top: 0 !important;
-	border-top: none;
-}
-
-/* Frustratingly the border-collapse:collapse used by Bootstrap makes the column
-   width calculations when using scrolling impossible to align columns. We have
-   to use separate
- */
-table.table-bordered.dataTable {
-	border-collapse: separate !important;
-}
-table.table-bordered thead th,
-table.table-bordered thead td {
-	border-left-width: 0;
-	border-top-width: 0;
-}
-table.table-bordered tbody th,
-table.table-bordered tbody td {
-	border-left-width: 0;
-	border-bottom-width: 0;
-}
-table.table-bordered tfoot th,
-table.table-bordered tfoot td {
-    border-left-width: 0;
-    border-bottom-width: 0;
-}
-table.table-bordered th:last-child,
-table.table-bordered td:last-child {
-	border-right-width: 0;
-}
-div.dataTables_scrollHead table.table-bordered {
-	border-bottom-width: 0;
-}
-
-
-
-
-/*
- * TableTools styles
- */
-.table.dataTable tbody tr.active td,
-.table.dataTable tbody tr.active th {
-	background-color: #08C;
-	color: white;
-}
-
-.table.dataTable tbody tr.active:hover td,
-.table.dataTable tbody tr.active:hover th {
-	background-color: #0075b0 !important;
-}
-
-.table.dataTable tbody tr.active th > a,
-.table.dataTable tbody tr.active td > a {
-	color: white;
-}
-
-.table-striped.dataTable tbody tr.active:nth-child(odd) td,
-.table-striped.dataTable tbody tr.active:nth-child(odd) th {
-	background-color: #017ebc;
-}
-
-table.DTTT_selectable tbody tr {
-	cursor: pointer;
-}
-
-div.DTTT .btn:hover {
-	text-decoration: none !important;
-}
-
-ul.DTTT_dropdown.dropdown-menu {
-  z-index: 2003;
-}
-
-ul.DTTT_dropdown.dropdown-menu a {
-	color: #333 !important; /* needed only when demo_page.css is included */
-}
-
-ul.DTTT_dropdown.dropdown-menu li {
-	position: relative;
-}
-
-ul.DTTT_dropdown.dropdown-menu li:hover a {
-	background-color: #0088cc;
-	color: white !important;
-}
-
-div.DTTT_collection_background {
-	z-index: 2002;	
-}
-
-/* TableTools information display */
-div.DTTT_print_info {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 400px;
-	height: 150px;
-	margin-left: -200px;
-	margin-top: -75px;
-	text-align: center;
-	color: #333;
-	padding: 10px 30px;
-	opacity: 0.95;
-
-	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 6px;
+        <script type="text/javascript" charset="utf-8">
+            $( document ).ready(function() {
+                createTable('data/materials.csv', 'materials', [3]);
+            });
+		</script>
+	</head>
+	<body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Zelda: Breath of the Wild Materials/Recipes</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Materials</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="https://github.com/caravot/caravot.github.io/issues" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Submit an Issue or Suggestion">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <h1 class="page-header">Material List</h1>
+        </div>
+        <div class="container-fluid">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="text" class="form-control" id="search" name="search" placeholder="Search Term" autofocus="">
+                    <button type="reset" class="btn btn-default btn-reset">Reset</button>
+                    <a href="./data/materials.csv"><button type="button" class="btn btn-info">Download</button></a>
+                </div>
+            </form>
+        </div>
+        <div class="container-fluid">
+            <div id="materials"><div id="materials-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"><div id="materials-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="materials-table"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-striped table-condensed table-bordered dataTable" id="materials-table" role="grid" aria-describedby="materials-table_info"><thead><tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending" style="width: 237px;">Name</th><th class="sorting" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="Sell Price: activate to sort column ascending" style="width: 122px;">Sell Price</th><th class="sorting" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="HP Recovery (HP restored if eaten raw. 4 HP = 1 Heart): activate to sort column ascending" style="width: 616px;">HP Recovery (HP restored if eaten raw. 4 HP = 1 Heart)</th><th class="sorting" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 118px;">Category</th><th class="sorting" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="Duration Factor: activate to sort column ascending" style="width: 190px;">Duration Factor</th><th class="sorting" tabindex="0" aria-controls="materials-table" rowspan="1" colspan="1" aria-label="Notes: activate to sort column ascending" style="width: 433px;">Notes</th></tr></thead><tfoot><tr><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"><br><select><option value=""></option><option value="Chilly">Chilly</option><option value="Electro">Electro</option><option value="Enduring">Enduring</option><option value="Energizing">Energizing</option><option value="Fireproof">Fireproof</option><option value="Hasty">Hasty</option><option value="Hearty">Hearty</option><option value="Mighty">Mighty</option><option value="Sneaky">Sneaky</option><option value="Spicy">Spicy</option><option value="Tough">Tough</option></select></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th></tr></tfoot><tbody><tr role="row" class="odd"><td class="sorting_1">Acorn</td><td>2</td><td>1</td><td>-</td><td>50</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Amber</td><td>30</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Ancient Core</td><td>80</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Ancient Gear</td><td>30</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Ancient Screw</td><td>12</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Ancient Shaft</td><td>40</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Ancient Spring</td><td>15</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Apple</td><td>3</td><td>2</td><td></td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Armoranth</td><td>5</td><td>-</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Armored Carp</td><td>10</td><td>4</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Armored Porgy</td><td>10</td><td>4</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Big Hearty Radish</td><td>15</td><td>16</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Big Hearty Truffle</td><td>15</td><td>12</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Bird Egg</td><td>3</td><td>4</td><td>-</td><td>90</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Bladed Rhino Beetle</td><td>4</td><td>-</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Blue Nightshade</td><td>4</td><td>-</td><td>Sneaky</td><td>120</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Bokoblin Fang</td><td>8</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Bokoblin Guts</td><td>20</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Bokoblin Horn</td><td>3</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Cane Sugar</td><td>3</td><td>-</td><td>-</td><td>80</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Chickaloo Tree Nut</td><td>3</td><td>1</td><td>-</td><td>40</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Chillfin Trout</td><td>6</td><td>4</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Chillshroom</td><td>4</td><td>2</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Chuchu Jelly</td><td>5</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Cold Darner</td><td>2</td><td>-</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Cool Safflina</td><td>3</td><td>-</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Courser Bee Honey</td><td>10</td><td>8</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Diamond</td><td>500</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Dinraal's Claw</td><td>180</td><td>-</td><td>-</td><td>210</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Dinraal's Scale</td><td>150</td><td>-</td><td>-</td><td>90</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Electirc Safflina</td><td>3</td><td>-</td><td>Electro</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Electric Darner</td><td>2</td><td>-</td><td>Electro</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Electric Keese Wing</td><td>6</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Endura Carrot</td><td>30</td><td>8</td><td>Enduring</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Endura Shroom</td><td>6</td><td>4</td><td>Enduring</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Energetic Rhino Beetle</td><td>30</td><td>-</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Fairy</td><td>8</td><td>20</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Farosh's Claw</td><td>180</td><td>-</td><td>-</td><td>210</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Farosh's Scale</td><td>150</td><td>-</td><td>-</td><td>90</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Fire Keese Wing</td><td>6</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Fireproof Lizard</td><td>5</td><td>-</td><td>Fireproof</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Fleet-Lotus Seeds</td><td>5</td><td>2</td><td>Hasty</td><td>60</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Flint</td><td>5</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Fortified Pumpkin</td><td>5</td><td>2</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Fresh Milk</td><td>3</td><td>2</td><td>-</td><td>80</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Giant Ancient Core</td><td>200</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Goat Butter</td><td>3</td><td>-</td><td>-</td><td>80</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Goron Spice</td><td>4</td><td>-</td><td>-</td><td>90</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Hearty Bass</td><td>18</td><td>8</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hearty Bluesheel Snail</td><td>6</td><td>12</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hearty Durian</td><td>15</td><td>12</td><td> Hearty</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hearty Lizard</td><td>20</td><td>-</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hearty Radish</td><td>8</td><td>10</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hearty Salmon</td><td>10</td><td>16</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hearty Truffle</td><td>6</td><td>8</td><td>Hearty</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hightail Lizard</td><td>2</td><td>-</td><td>Hasty</td><td>60</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hinox Guts</td><td>80</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hinox Toenail</td><td>20</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hinox Tooth</td><td>35</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hot-Footed Frog</td><td>2</td><td>-</td><td>Hasty</td><td>60</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hydromelon</td><td>4</td><td>2</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hylian Rie</td><td>3</td><td>4</td><td>-</td><td>60</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Hylian Shroom</td><td>3</td><td>2</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Hyrule Bass</td><td>6</td><td>4</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Hyrule Herb</td><td>3</td><td>4</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Ice Keese Wing</td><td>6</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Icy Lizalfos Tail</td><td>35</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Ironsheel Crab</td><td>8</td><td>4</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Ironshroom</td><td>5</td><td>2</td><td>Hasty</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Keese Eyeball</td><td>20</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Keese Wing</td><td>2</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Lizalfos Horn</td><td>10</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Lizalfos Tail</td><td>28</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Lizalfos Talon</td><td>15</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Luminous Stone</td><td>70</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Lynel Guts</td><td>200</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Lynel Hoof</td><td>50</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Lynel Horn</td><td>40</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Mighty Bananas</td><td>5</td><td>2</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Mighty Carp</td><td>10</td><td>4</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Mighty Thistle</td><td>5</td><td>-</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Migty Porgy</td><td>20</td><td>4</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Moblin Fang</td><td>12</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Moblin Guts</td><td>25</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Moblin Horn</td><td>5</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Molduga Fin</td><td>30</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Molduga Guts</td><td>110</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Monster Extract</td><td>3</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Naydra's Claw</td><td>180</td><td>-</td><td>-</td><td>210</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Naydra's Scale</td><td>150</td><td>-</td><td>-</td><td>90</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Octo Balloon</td><td>5</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Octorok Eyeball</td><td>25</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Octorok Tentacle</td><td>10</td><td>-</td><td>-</td><td>70</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Opal</td><td>60</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Palm Fruit</td><td>4</td><td>4</td><td></td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Raw Bird Drumstick</td><td>8</td><td>4</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Raw Bird Thigh</td><td>15</td><td>6</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Raw Gourmet Meat</td><td>35</td><td>12</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Raw Meat</td><td>8</td><td>4</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Raw Prime Meat</td><td>15</td><td>6</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Raw Whole Bird</td><td>35</td><td>12</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Razorclaw Crab</td><td>15</td><td>4</td><td>Mighty</td><td>50</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Razorshroom</td><td>5</td><td>2</td><td>Electro</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Red Chuchu Jelly</td><td>10</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Red Lizalfos Tail</td><td>35</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Restless Cricket</td><td>2</td><td>-</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Rock Salt</td><td>2</td><td>-</td><td>-</td><td>60</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Ruby</td><td>210</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Rugged Rhino Beetle</td><td>4</td><td>-</td><td>Tough</td><td>50</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Rushroom</td><td>3</td><td>2</td><td>Hasty</td><td>60</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Sanke Carp</td><td>10</td><td>4</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Sapphire</td><td>260</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Shard of Dinraal's Fang</td><td>250</td><td>-</td><td>-</td><td>630</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Shard of Dinraal's Horn</td><td>300</td><td>-</td><td>-</td><td>1800</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Shard of Farosh's Fang</td><td>250</td><td>-</td><td>-</td><td>630</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Shard of Farosh's Horn</td><td>300</td><td>-</td><td>-</td><td>1800</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Shard of Naydra's Fang</td><td>250</td><td>-</td><td>-</td><td>630</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="even"><td class="sorting_1">Shard of Naydra's Horn</td><td>300</td><td>-</td><td>-</td><td>1800</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Silent Princess</td><td>10</td><td>8</td><td>Sneaky</td><td>120</td><td>Only When Cooked</td></tr><tr role="row" class="even"><td class="sorting_1">Silent Shroom</td><td>3</td><td>2</td><td>Sneaky</td><td>120</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Sizzlefin Trout</td><td>6</td><td>4</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Smotherwing Butterfly</td><td>2</td><td>-</td><td>Fireproof</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Sneaky River Snail</td><td>10</td><td>4</td><td>Sneaky</td><td>120</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Spicy Pepper</td><td>3</td><td>2</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Stamella Shroom</td><td>5</td><td>2</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Staminoka Bass</td><td>18</td><td>4</td><td>Energizing</td><td>-</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Star Fragment</td><td>300</td><td>-</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Stealthfin Trout</td><td>6</td><td>4</td><td>Sneaky</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Summerwing Butterfly</td><td>2</td><td>-</td><td>Chilly</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Sunset Firefly</td><td>2</td><td>-</td><td>Sneaky</td><td>120</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Sunshroom</td><td>4</td><td>2</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Swift Carrot</td><td>4</td><td>2</td><td>Hasty</td><td>60</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Swift Violet</td><td>10</td><td>-</td><td>Sneaky</td><td>60</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Tabantha Wheat</td><td>3</td><td>4</td><td>-</td><td>60</td><td>Reduced to 30 for all subsequent additions</td></tr><tr role="row" class="odd"><td class="sorting_1">Thunderwing Butterfly</td><td>2</td><td>-</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Tireless Frog</td><td>20</td><td>16</td><td>Enduring</td><td>-</td><td>Only When Cooked</td></tr><tr role="row" class="odd"><td class="sorting_1">Topaz</td><td>180</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Voltfin Trout</td><td>6</td><td>4</td><td>Electro</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Voltfruit</td><td>4</td><td>2</td><td>Electro</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Warm Darner</td><td>2</td><td>-</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Warm Safflina</td><td>3</td><td>-</td><td>Spicy</td><td>150</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">White Chuchu Jelly</td><td>10</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Wildberry</td><td>3</td><td>2</td><td></td><td>30</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Winterwing Butterfly</td><td>10</td><td>-</td><td>-</td><td>30</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Wood</td><td>2</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Yellow Chuchu Jelly</td><td>10</td><td>-</td><td>-</td><td>110</td><td></td></tr><tr role="row" class="odd"><td class="sorting_1">Yellow Lizalfos Tail</td><td>35</td><td>-</td><td>-</td><td>190</td><td></td></tr><tr role="row" class="even"><td class="sorting_1">Zapshroom</td><td>4</td><td>2</td><td>Electro</td><td>150</td><td></td></tr></tbody></table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="materials-table_info" role="status" aria-live="polite">Showing 1 to 148 of 148 entries</div></div><div class="col-sm-7"></div></div></div></div>
+        </div>
+        <footer class="footer">
+            <div class="container text-center">
+                <span class="text-muted">Last Updated: March 26, 2017</span>
+            </div>
+        </footer>
 	
-	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
-	        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
-}
 
-div.DTTT_print_info h6 {
-	font-weight: normal;
-	font-size: 28px;
-	line-height: 28px;
-	margin: 1em;
-}
-
-div.DTTT_print_info p {
-	font-size: 14px;
-	line-height: 20px;
-}
-
-div.dataTables_processing {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 60px;
-    margin-left: -50%;
-    margin-top: -25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    font-size: 1.2em;
-    background-color: white;
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(25%, rgba(255,255,255,0.9)), color-stop(75%, rgba(255,255,255,0.9)), color-stop(100%, rgba(255,255,255,0)));
-    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%);
-    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%);
-    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%);
-    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%);
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%);
-}
-
-
-
-/*
- * FixedColumns styles
- */
-div.DTFC_LeftHeadWrapper table,
-div.DTFC_LeftFootWrapper table,
-div.DTFC_RightHeadWrapper table,
-div.DTFC_RightFootWrapper table,
-table.DTFC_Cloned tr.even {
-    background-color: white;
-    margin-bottom: 0;
-}
- 
-div.DTFC_RightHeadWrapper table ,
-div.DTFC_LeftHeadWrapper table {
-	border-bottom: none !important;
-    margin-bottom: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-}
- 
-div.DTFC_RightHeadWrapper table thead tr:last-child th:first-child,
-div.DTFC_RightHeadWrapper table thead tr:last-child td:first-child,
-div.DTFC_LeftHeadWrapper table thead tr:last-child th:first-child,
-div.DTFC_LeftHeadWrapper table thead tr:last-child td:first-child {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-}
- 
-div.DTFC_RightBodyWrapper table,
-div.DTFC_LeftBodyWrapper table {
-    border-top: none;
-    margin: 0 !important;
-}
- 
-div.DTFC_RightBodyWrapper tbody tr:first-child th,
-div.DTFC_RightBodyWrapper tbody tr:first-child td,
-div.DTFC_LeftBodyWrapper tbody tr:first-child th,
-div.DTFC_LeftBodyWrapper tbody tr:first-child td {
-    border-top: none;
-}
- 
-div.DTFC_RightFootWrapper table,
-div.DTFC_LeftFootWrapper table {
-    border-top: none;
-    margin-top: 0 !important;
-}
-
-
-div.DTFC_LeftBodyWrapper table.dataTable thead .sorting:after,
-div.DTFC_LeftBodyWrapper table.dataTable thead .sorting_asc:after,
-div.DTFC_LeftBodyWrapper table.dataTable thead .sorting_desc:after,
-div.DTFC_RightBodyWrapper table.dataTable thead .sorting:after,
-div.DTFC_RightBodyWrapper table.dataTable thead .sorting_asc:after,
-div.DTFC_RightBodyWrapper table.dataTable thead .sorting_desc:after {
-	display: none;
-}
-
-
-/*
- * FixedHeader styles
- */
-div.FixedHeader_Cloned table {
-	margin: 0 !important
-}
-
-
+</body></html>
